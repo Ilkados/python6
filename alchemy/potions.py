@@ -1,15 +1,16 @@
-# We use "from...import" to grab exactly what we need
-from alchemy.elements import create_fire, create_water, create_earth, create_air
+from elements import create_fire, create_water
+from .elements import create_earth, create_air
 
-def healing_potion():
-    return f"Healing potion brewed with {create_fire()} and {create_water()}"
 
-def strength_potion():
-    return f"Strength potion brewed with {create_earth()} and {create_fire()}"
+def healing_potion() -> str:
+    return (
+        f"Healing potion brewed with '{create_earth()}' "
+        f"and '{create_air()}'"
+    )
 
-def invisibility_potion():
-    return f"Invisibility potion brewed with {create_air()} and {create_water()}"
 
-def wisdom_potion():
-    all_four_results = f"{create_fire()}, {create_water()}, {create_earth()}, {create_air()}"
-    return f"Wisdom potion brewed with all elements: {all_four_results}"
+def strength_potion() -> str:
+    return (
+        f"Strength potion brewed with '{create_fire()}' "
+        f"and '{create_water()}'"
+    )
